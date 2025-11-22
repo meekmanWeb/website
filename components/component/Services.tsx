@@ -1,40 +1,12 @@
 import Image from "next/image";
-import { BookOpen, LibraryBig, FlaskConical, BookMarked } from "lucide-react";
 import image1 from "@/images/about.jpeg";
 import LearnMoreButton from "../button/LearnMoreButton";
-
-// Services array
-const services = [
-  {
-    title: "Textbook Production & Marketing",
-    description:
-      "Production and marketing of textbooks for nursery, primary, and secondary schools.",
-    icon: BookOpen,
-  },
-  {
-    title: "Library Equipment",
-    description:
-      "Equipment of libraries with modern textbooks and excelling publications.",
-    icon: LibraryBig,
-  },
-  {
-    title: "Laboratory Equipment",
-    description:
-      "Supply and setup of laboratory equipment for science education in schools.",
-    icon: FlaskConical,
-  },
-  {
-    title: "Literature & Storybook Publishing",
-    description:
-      "Production and marketing of literature books, short stories, fables, and other creative works.",
-    icon: BookMarked,
-  },
-];
+import { services } from "../data";
 
 const Services = () => {
   return (
-    <article className="bg-gray-300 py-[100px] my-[180px]">
-      <section className="flex flex-col md:flex-row-reverse items-center justify-between gap-10 w-full max-w-[1440px] px-4 mx-auto">
+    <article className="bg-gray-300  py-[100px] mt-25">
+      <section className="flex flex-col md:flex-row-reverse items-center justify-between gap-10 w-full mx-auto max-w-6xl px-4 ">
         {/* Image Block */}
         <div className="w-full md:w-1/2">
           <Image
@@ -52,12 +24,12 @@ const Services = () => {
             Our Services
           </h2>
 
-          <p className="text-[18px] leading-8 px-2 md:px-0">
+          <p className="text-lg px-2 md:px-0">
             Meekman is a leading <b>Book Publishing Company</b>, dedicated to
             delivering <b>innovative solutions</b> that meet the evolving needs
-            of our clients. With a strong commitment to excellence, we
-            specialize in providing services designed to enhance performance,
-            drive efficiency, and create value.
+            of schools, teachers, pupils and the society at large. With a strong
+            commitment to excellence, we specialize in providing services
+            designed to enhance performance, drive efficiency, and create value.
             <br />
             <br />
             Our team of experts brings years of experience and a passion for
@@ -77,7 +49,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="mt-20 w-full max-w-[1440px] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="mt-20 w-full max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (

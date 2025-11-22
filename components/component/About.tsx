@@ -6,7 +6,7 @@ interface AboutProps {
 }
 const About = ({ learnMoreBtn = true }: AboutProps) => {
   return (
-    <section className="w-full max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 ">
+    <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-10 ">
       <div className="w-full md:w-1/2">
         <Image
           src={image1}

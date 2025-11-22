@@ -103,7 +103,9 @@ export default function Footer() {
         </div>
       </footer>
       <div className="fixed bottom-5 right-5 border border-gray-50 bg-white size-14 md:size-16 rounded-full flex justify-center items-center">
-        <FaWhatsapp className="size-10 md:size-[50]" color="green" />
+        <a href="https://wa.me/+2349075318511">
+          <FaWhatsapp className="size-10 md:size-[50]" color="green" />
+        </a>
       </div>
     </>
   );

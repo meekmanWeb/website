@@ -17,7 +17,6 @@ const heroTexts: HeroSectionTypes[] = [
 
 export default function HeroSection() {
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
@@ -51,7 +50,7 @@ export default function HeroSection() {
     <section className="  text-center relative">
       {/* HERO SLIDES */}
       <div className="relative w-full h-[450px] md:h-[550px] overflow-hidden ">
-        {heroTexts.map(({ text, backgroundImage }, index) => (
+        {heroTexts.map(({ text }, index) => (
           <div
             key={index}
             className="absolute inset-0 flex flex-col px-6 justify-center "
