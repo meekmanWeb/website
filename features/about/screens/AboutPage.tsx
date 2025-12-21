@@ -1,24 +1,14 @@
 import About from "@/components/component/About";
 import MissionAndVision from "@/components/component/MissionAndVision";
-import { Quote } from "lucide-react";
 
 const AboutPage = () => {
   return (
     <>
-      <section className="bg-gray-100 min-h-[300px] px-4 md:px-6 flex justify-center items-center">
-        <div className="text-center">
-          <h2 className="text-primary font-semibold text-2xl">
-            <Quote /> If you think education is expensive, try ignorance
-            <Quote />
-          </h2>
-          <p className="text-right text-BrandAmber text-xl">Keep Learning...</p>
-        </div>
-      </section>
       {/* our vision and mission  */}
-      <MissionAndVision />
       <div className="mt-6">
         <About learnMoreBtn={false} />
       </div>
+      <MissionAndVision />
       <div className="  max-w-4xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 py-8 ">
         <article className="my-10 space-y-8 text-center">
           <article className="mt-10 space-y-8">
