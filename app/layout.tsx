@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Meekman Books and Educational Services",
   metadataBase: new URL("https://meekman.org"),
   openGraph: {
-    title: "Meekman Books & Educational Services",
+    title: "Meekman",
     description:
       "Publishing quality educational books and delivering impactful seminars and workshops for schools across Nigeria.",
     siteName: "Meekman Books and Educational Services",
