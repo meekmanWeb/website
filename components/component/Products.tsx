@@ -10,23 +10,28 @@ const ProductsPage = () => {
   return (
     <main className="w-full max-w-6xl mx-auto px-4 py-24">
       <div className="mb-12 space-y-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-green-900  ">
+        <h1
+          className="text-3xl md:text-4xl font-bold text-green-900  "
+          data-aos="fade-down"
+        >
           Our Products
         </h1>
-        <p className="max-w-lg">
+        <p className="max-w-lg" data-aos="fade-up" data-aos-delay="200">
           Meekman prides in quality books and educational materials that spreads
           across diverse fields and levels of education ranging from pre school,
-          nursery, primary, secondary and the tertiary institution
+          nursery, primary, secondary and the tertiary institution.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {products.map((product, index) => (
           <div
             key={index}
             className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
+            data-aos={index > 1 ? "fade-up" : "fade-down"}
+            data-aos-delay="300"
           >
-            <div className="relative w-full h-56">
+            <div className="relative w-full h-[300px]">
               <Image
                 src={product.image}
                 alt={product.title}

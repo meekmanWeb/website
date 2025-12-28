@@ -1,5 +1,7 @@
+import ContactUsPage from "@/features/contactUs/ContactUsPage";
+
 const page = () => {
-  return <div>page</div>;
+  return <ContactUsPage />;
 };
 
 export default page;

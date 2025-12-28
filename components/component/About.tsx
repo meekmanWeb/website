@@ -1,5 +1,4 @@
 import Image from "next/image";
-import image1 from "@/images/about.jpeg";
 import LearnMoreButton from "../button/LearnMoreButton";
 interface AboutProps {
   learnMoreBtn?: boolean;
@@ -7,9 +6,13 @@ interface AboutProps {
 const About = ({ learnMoreBtn = true }: AboutProps) => {
   return (
     <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-10 ">
-      <div className="w-full md:w-1/2">
+      <div
+        className="w-full md:w-1/2"
+        data-aos="flip-right"
+        data-aos-delay="100"
+      >
         <Image
-          src={image1}
+          src="/images/meekman_about.jpg"
           alt="About Meekman"
           width={500}
           height={500}
@@ -18,11 +21,18 @@ const About = ({ learnMoreBtn = true }: AboutProps) => {
       </div>
 
       <div className="w-full md:w-1/2 text-black space-y-4">
-        <h2 className="text-center md:text-left text-base md:text-lg  text-amber-500 font-bold">
+        <h2
+          className="text-center md:text-left text-lg md:text-xl leading-[160%]  text-amber-500 font-bold"
+          data-aos="fade-down"
+        >
           About Us
         </h2>
 
-        <p className="text-[18px] leading-8 px-2 md:px-0">
+        <p
+          className="text-[18px] leading-8 px-2 md:px-0"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           <b className="text-xl font-bold text-primary">
             Meekan Books and Educational Services
           </b>{" "}

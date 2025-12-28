@@ -1,14 +1,48 @@
-import Image from "next/image";
+import { Bell, Mail, Phone } from "lucide-react";
 
-const Contact = () => {
+const ContactUsPage = () => {
   return (
-    <section className="py-10 flex flex-col md:flex-row max-w-6xl mx-auto gap-6 px-4 sm:px-6 lg:px-8">
-      <article className="w-full max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
-          Contact Us
-        </h2>
-
-        <form className="space-y-6 p-6 rounded-lg ">
+    <main className="mx-auto max-w-4xl w-full mt-10">
+      <section className="my-10 md:flex justify-center  gap-4">
+        <article className="w-full md:w-1/2 md:mt-6">
+          <h1 className=" font-bold md:text-lg text-primary">Contact Us</h1>
+          <p>We are a message away</p>
+          <div className="mt-6 space-y-5">
+            <article className="flex gap-4">
+              <Phone className="mt-1" />
+              <div>
+                <h3 className="text-primary font-semibold">Phone</h3>
+                <p className="text-sm">07066190321</p>
+                <p className="text-sm">08038636871</p>
+                <p className="text-sm">08064229573</p>
+              </div>
+            </article>
+            <article className="flex gap-4">
+              <Mail className="mt-1" />
+              <div>
+                <h3 className="text-primary font-semibold">Email</h3>
+                <p className="text-sm">meekman@meekman.org</p>
+                <p className="text-sm">support@meekman.org</p>
+                <p className="text-sm">meekmanpubzeal@gmail.com</p>
+              </div>
+            </article>
+            <article className="flex items-center gap-4">
+              <Bell className="mt-1" />
+              <div>
+                <h3 className="text-primary font-semibold">Address</h3>
+                <p className="text-sm">
+                  <strong className="text-secondary">Head Office: </strong>
+                  7, Kogi Layout,Off Ogunfayo Crescent Ashi, Ibadan.
+                </p>
+                <p className="text-sm">
+                  <strong className="text-secondary">Ibadan Branch: </strong>
+                  1, Olororo House, Olororo Bus Stop, Ojoo, Ibadan.
+                </p>
+              </div>
+            </article>
+          </div>
+        </article>
+        <form className=" shadow bg-[#ebebeb] w-full md:w-1/2 space-y-6 p-6 rounded-lg ">
           <div>
             <label
               htmlFor="schoolName"
@@ -82,9 +116,9 @@ const Contact = () => {
             </button>
           </div>
         </form>
-      </article>
-    </section>
+      </section>
+    </main>
   );
 };
 
-export default Contact;
+export default ContactUsPage;
