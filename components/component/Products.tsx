@@ -11,7 +11,7 @@ const ProductsPage = () => {
     <main className="w-full max-w-6xl mx-auto px-4 py-24">
       <div className="mb-12 space-y-4">
         <h1
-          className="text-3xl md:text-4xl font-bold text-green-900  "
+          className="text-3xl md:text-4xl font-bold text-primary  "
           data-aos="fade-down"
         >
           Our Products
@@ -40,7 +40,7 @@ const ProductsPage = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold text-green-800 mb-2">
+              <h3 className="text-xl font-semibold text-primary mb-2">
                 {product.title}
               </h3>
               <p className="text-gray-600 text-sm">{product.description}</p>

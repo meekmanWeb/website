@@ -19,7 +19,7 @@ const Services = () => {
 
         {/* Text Block */}
         <div className="w-full md:w-1/2 text-black space-y-6">
-          <h2 className="text-center md:text-left text-[32px] leading-12 text-green-900 font-bold">
+          <h2 className="text-center md:text-left text-[32px] leading-12 text-primary font-bold">
             Our Services
           </h2>
 

@@ -6,13 +6,29 @@ import Image from "next/image";
 export interface HeroSectionTypes {
   id: number;
   text: string;
+  headsOn: string;
   backgroundImage: string;
 }
 
 const heroTexts: HeroSectionTypes[] = [
-  { id: 1, text: "Empowering Minds", backgroundImage: "/images/d1.jpg" },
-  { id: 2, text: "Inspiring Readers", backgroundImage: "/images/d1.jpg" },
-  { id: 3, text: "Transforming Futures", backgroundImage: "/images/d1.jpg" },
+  {
+    id: 1,
+    text: "Empowering Minds",
+    headsOn: "Innovation and creativity drives it.",
+    backgroundImage: "/images/d1.jpg",
+  },
+  {
+    id: 2,
+    text: "Inspiring Readers",
+    headsOn: "Where books meet boundless learning.",
+    backgroundImage: "/images/d1.jpg",
+  },
+  {
+    id: 3,
+    text: "Transforming Futures",
+    headsOn: "Keep learning ...",
+    backgroundImage: "/images/d1.jpg",
+  },
 ];
 
 export default function HeroSection() {
@@ -50,7 +66,7 @@ export default function HeroSection() {
     <section className="  text-center relative">
       {/* HERO SLIDES */}
       <div className="relative w-full h-[450px] md:h-[550px] overflow-hidden ">
-        {heroTexts.map(({ text }, index) => (
+        {heroTexts.map(({ text, headsOn }, index) => (
           <div
             key={index}
             className="absolute inset-0 flex flex-col px-6 justify-center "
@@ -69,8 +85,8 @@ export default function HeroSection() {
               }}
             >
               {text}
-              <p className="text-lg md:text-xl text-gray-600 max-w-xl mt-6">
-                Where books meet boundless learning.
+              <p className="text-lg md:text-xl text-gray-400 max-w-xl mt-6">
+                {headsOn}
               </p>
             </div>
           </div>

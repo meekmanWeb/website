@@ -19,6 +19,31 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Meekman Books and Educational Services",
   description: "Meekman Books and Educational Services",
+  metadataBase: new URL("https://meekman.org"),
+  openGraph: {
+    title: "Meekman Books & Educational Services",
+    description:
+      "Publishing quality educational books and delivering impactful seminars and workshops for schools across Nigeria.",
+    siteName: "Meekman Books and Educational Services",
+    images: [
+      {
+        url: "/images/comp_logo.jpg", // 1200x630
+        width: 1200,
+        height: 630,
+        alt: "Meekman Books and Educational Services",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Meekman Books & Educational Services",
+    description:
+      "Educational publishing, teacher training, and school workshops across Nigeria.",
+    images: ["/images/comp_logo.jpg"],
+  },
 };
 export default function RootLayout({
   children,

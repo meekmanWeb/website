@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaFacebook, FaWhatsapp } from "react-icons/fa6";
 import CompanyLogo from "./CompanyLogo";
 import { BsWhatsapp } from "react-icons/bs";
+import { quickLinks } from "../data";
 
 interface Socials {
   name: string;
@@ -33,25 +34,24 @@ const socialLinks: Socials[] = [
     href: "https://wa.me/+2348064229573",
   },
 ];
-export const quickLinks = ["Events", "Seminars", "Workshops", "Products"];
 export default function Footer() {
   return (
     <>
       <footer className="bg-primary text-white py-10 space-y-5 px-6">
-        <section className="grid md:grid-cols-3 md:gap-6 gap-4 items-center lg:gap-10 lg:grid-cols-4">
+        <section className="sm:grid md:grid-cols-3 md:gap-6 gap-4 items-center lg:gap-10 lg:grid-cols-4">
           <div className="pr-4 col-span-2 max-w-lg  ">
             <div className="w-full">
               <CompanyLogo />
             </div>
-            <p className="mt-5 font-semibold text-[#dcdcdf]">
+            <p className="mt-5 text-sm font-semibold text-[#dcdcdf]">
               Meekman is a leading Book Publishing Company, dedicated to
               delivering innovative solutions that meet the evolving needs of
-              our clients. With a strong commitment to excellence, we specialize
-              in providing services designed to enhance performance, drive
-              efficiency, and create value.
+              students, teachers and other learners. With a strong commitment to
+              excellence, we specialize in providing services designed to
+              enhance performance, drive efficiency, and create value.
             </p>
           </div>
-          <article className="">
+          <article className="my-6 sm:my-0">
             <h3 className="text-lg font-bold mb-5">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
@@ -59,18 +59,18 @@ export default function Footer() {
                   key={index}
                   className="text-base text-[#dcdcdf] font-medium"
                 >
-                  <Link href={link} className="hover:underline">
-                    {link}
+                  <Link href={link.path} className="hover:underline">
+                    {link.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </article>
-          <article className="space-y-4">
+          <article className="">
             <h3 className="text-lg mb-6 font-bold">Contact Us</h3>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between lg:gap-10 max-w-4xl mx-auto gap-4 ">
-              <div className="text-sm  space-y-1">
-                <p className="flex items-center justify-center sm:justify-start gap-2">
+              <div className="text-sm space-y-1">
+                <p className="sm:flex items-center  sm:justify-start gap-2">
                   <Phone size={16} />
                   <div>
                     <p>+2347066190321</p>
@@ -78,7 +78,7 @@ export default function Footer() {
                     <p>+2348064229573</p>
                   </div>
                 </p>
-                <p className="flex items-center mt-4 justify-center sm:justify-start gap-2">
+                <p className="sm:flex items-center mt-4  sm:justify-start gap-2">
                   <Mail size={16} />
                   <div>
                     <p>support@meekman.org</p>
@@ -86,7 +86,7 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="mt-3 flex items-center gap-4">
               {socialLinks.map(({ icon, name, href }, i) => (
                 <div key={i} className="text-sm text-gray-600">
                   <Link

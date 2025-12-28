@@ -106,3 +106,9 @@ export const seminarContents = [
     text: "Our leadership and management workshops help administrators adopt modern tools, strategic planning methods, and best practices that improve school operations and long-term educational success.",
   },
 ];
+export const quickLinks = [
+  { title: "About Us", path: "/about" },
+  { title: "Our Blog", path: "/blogs" },
+  { title: "Seminars", path: "/seminars" },
+  { title: "Products", path: "/products" },
+];

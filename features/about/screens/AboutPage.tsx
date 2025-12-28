@@ -81,8 +81,10 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <div className="text-left">
+  <div className="text-left" data-aos="fade-up">
     <h3 className="text-xl text-orange-500 font-bold">{title}</h3>
-    <p className="mt-2 text-gray-700">{children}</p>
+    <p className="mt-2 text-gray-700" data-aos="fade-down" data-aos-delay="300">
+      {children}
+    </p>
   </div>
 );
