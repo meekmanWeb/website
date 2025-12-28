@@ -14,41 +14,84 @@ export const links = [
   { href: "/contact", label: "Contact Us" },
   { href: "/blog", label: "Blog" },
 ];
-export const products: ProductsType[] = [
+export const nurserySeries: ProductsType[] = [
   {
     title: "Meekman Modern Nursery Mathematics ",
     description: "Colorful and engaging books tailored for nursery pupils.",
     image: "/images/01.jpg",
+    categories: "nursery",
+    id: "mmnm",
   },
   {
     title: "Meekman Modern Nursery English",
     description: "Curriculum-aligned books for primary school learners.",
     image: "/images/02.jpg",
+    categories: "nursery",
+
+    id: "mmne",
+  },
+];
+export const products: ProductsType[] = [
+  {
+    title: "Meekman Modern Nursery Mathematics ",
+    description: "Colorful and engaging books tailored for nursery pupils.",
+    image: "/images/01.jpg",
+    categories: "nursery",
+    id: "mmnm",
+  },
+  {
+    title: "Meekman Modern Nursery English",
+    description: "Curriculum-aligned books for primary school learners.",
+    image: "/images/02.jpg",
+    categories: "nursery",
+
+    id: "mmne",
   },
   {
     title: "Meekman First class English",
     description:
       "Comprehensive textbooks for junior and senior secondary students.",
     image: "/images/first_class.png",
+    categories: "primary",
+    id: "mfce",
   },
   {
     title: "Meekman First class Mathematics",
     description: "Fables, short stories, and novels to build reading culture.",
     image: "/images/03.jpg",
+    categories: "primary",
+    id: "mfcm",
   },
   {
     title: "Meekman Analytical Approach to Quantitative Reasoning",
     description: "Visual learning aids for classrooms and libraries.",
     image: "/images/02.jpg",
+    categories: "primary",
+    id: "mmqr",
   },
   {
     title: "Meekman Analytical Approach to Verbal Reasoning",
     description: "Visual learning aids for classrooms and libraries.",
     image: "/images/02.jpg",
+    categories: "primary",
+    id: "mmvr",
+  },
+  {
+    title: "Concise History",
+    description: "Visual learning aids for classrooms and libraries.",
+    image: "/images/02.jpg",
+    categories: "secondary",
+    id: "ch",
+  },
+  {
+    title: "Basic English Rules",
+    description: "Visual learning aids for classrooms and libraries.",
+    image: "/images/02.jpg",
+    categories: "secondary",
+    id: "ber",
   },
 ];
-export // Services array
-const services = [
+export const services = [
   {
     title: "Textbook Production & Marketing",
     description:
