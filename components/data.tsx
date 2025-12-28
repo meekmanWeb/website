@@ -1,5 +1,11 @@
 import { ProductsType } from "@/types";
-import { BookOpen, LibraryBig, FlaskConical, BookMarked } from "lucide-react";
+import {
+  BookOpen,
+  LibraryBig,
+  FlaskConical,
+  BookMarked,
+  Laptop,
+} from "lucide-react";
 
 export const links = [
   { href: "/", label: "Home" },
@@ -23,7 +29,7 @@ export const products: ProductsType[] = [
     title: "Meekman First class English",
     description:
       "Comprehensive textbooks for junior and senior secondary students.",
-    image: "/images/03.jpg",
+    image: "/images/first_class.png",
   },
   {
     title: "Meekman First class Mathematics",
@@ -62,6 +68,12 @@ const services = [
     icon: FlaskConical,
   },
   {
+    title: "CBT Centers Equipment",
+    description:
+      "Supply and setup of modern laptops and computers for Computer based Test (CBT) centers.",
+    icon: Laptop,
+  },
+  {
     title: "Literature & Storybook Publishing",
     description:
       "Production and marketing of literature books, short stories, fables, and other creative works.",
@@ -74,9 +86,23 @@ const services = [
     icon: BookMarked,
   },
   {
-    title: "Teachers training and Workshops",
+    title: "Teachers training and Seminars",
     description:
       "Production and marketing of literature books, short stories, fables, and other creative works.",
     icon: BookMarked,
+  },
+];
+export const seminarContents = [
+  {
+    title: "Teacher Training Workshops",
+    text: "Our teacher-focused seminars provide practical guidance on classroom management, curriculum delivery, modern teaching techniques, and subject-specific mastery. Ideal for schools seeking to enhance teacher performance and student engagement.",
+  },
+  {
+    title: "Pupil Development Programs",
+    text: "We conduct engaging student workshops on study skills, reading improvement, exam readiness, leadership, and motivation—helping learners build confidence, discipline, and strong academic habits.",
+  },
+  {
+    title: "School Administrator Seminars",
+    text: "Our leadership and management workshops help administrators adopt modern tools, strategic planning methods, and best practices that improve school operations and long-term educational success.",
   },
 ];

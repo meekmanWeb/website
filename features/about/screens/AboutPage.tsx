@@ -17,12 +17,14 @@ const AboutPage = () => {
             </h2>
 
             <Section title="Founded in Vision, Built on Excellence">
-              In 2014, a visionary group of entrepreneurs recognized a critical
-              need for high-quality educational materials in Nigeria’s rapidly
-              evolving academic landscape. Driven by a passion for learning and
-              a commitment to educational excellence, they established{" "}
-              <strong>Meekman Book and Educational Services</strong>, officially
-              incorporated by the Corporate Affairs Commission (CAC) of Nigeria.
+              In 2014, a visionary group of scholars,entrepreneurs and
+              publishers recognized a critical need for high-quality educational
+              materials in Nigeria’s rapidly evolving academic landscape. Driven
+              by a passion for learning and a commitment to educational
+              excellence, they established{" "}
+              <strong>Meekman Books and Educational Services</strong>,
+              officially incorporated by the Corporate Affairs Commission (CAC)
+              of Nigeria.
             </Section>
 
             <Section title="Early Years: Laying the Foundation">

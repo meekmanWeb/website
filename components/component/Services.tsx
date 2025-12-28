@@ -1,5 +1,4 @@
 import Image from "next/image";
-import image1 from "@/images/about.jpeg";
 import LearnMoreButton from "../button/LearnMoreButton";
 import { services } from "../data";
 
@@ -8,9 +7,9 @@ const Services = () => {
     <article className="bg-gray-300  py-[100px] mt-25">
       <section className="flex flex-col md:flex-row-reverse items-center justify-between gap-10 w-full mx-auto max-w-6xl px-4 ">
         {/* Image Block */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2" data-aos="flip-right">
           <Image
-            src={image1}
+            src="/images/service.png"
             alt="About Meekman"
             width={500}
             height={500}
@@ -55,10 +54,11 @@ const Services = () => {
           return (
             <div
               key={index}
+              data-aos={index > 1 ? "fade-up" : "fade-down"}
               className="flex flex-col items-start bg-white p-6 rounded-md shadow-sm hover:shadow-md transition"
             >
-              <Icon className="text-green-800 w-8 h-8 mb-4" />
-              <h3 className="text-lg font-semibold mb-2 text-green-900">
+              <Icon className="text-primary w-8 h-8 mb-4" />
+              <h3 className="text-lg font-semibold mb-2 text-primary">
                 {service.title}
               </h3>
               <p className="text-gray-700 text-sm">{service.description}</p>

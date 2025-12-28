@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { links } from "../data";
+import CompanyLogo from "./CompanyLogo";
 interface Props {
   setOpenSideBar: (open: boolean) => void;
 }
@@ -16,13 +17,7 @@ const SidebarComp = ({ setOpenSideBar }: Props) => {
       ></div>
       <aside className="fixed top-0 right-0 w-64 h-full bg-white shadow-lg z-9999 p-4 ">
         <div className="flex items-center justify-between mb-10">
-          <Image
-            src="/meekman_img.png"
-            alt="Meekman Publishers"
-            width={150}
-            height={50}
-            className="size-10"
-          />
+          <CompanyLogo />
           <X
             onClick={() => setOpenSideBar(false)}
             className="cursor-pointer"
@@ -37,7 +32,7 @@ const SidebarComp = ({ setOpenSideBar }: Props) => {
                 href={link.href}
                 className={` ${
                   link.href == pathname ? "text-secondary" : "text-primary"
-                } hover:underline transition`}
+                } hover:underline transition text-lg`}
               >
                 {link.label}
               </Link>
