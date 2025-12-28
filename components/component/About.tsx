@@ -21,12 +21,12 @@ const About = ({ learnMoreBtn = true }: AboutProps) => {
       </div>
 
       <div className="w-full md:w-1/2 text-black space-y-4">
-        <h2
+        {/* <h2
           className="text-center md:text-left text-lg md:text-xl leading-[160%]  text-amber-500 font-bold"
           data-aos="fade-down"
         >
           About Us
-        </h2>
+        </h2> */}
 
         <p
           className="text-[18px] leading-8 px-2 md:px-0"
@@ -34,7 +34,7 @@ const About = ({ learnMoreBtn = true }: AboutProps) => {
           data-aos-delay="300"
         >
           <b className="text-xl font-bold text-primary">
-            Meekan Books and Educational Services
+            Meekman Books and Educational Services
           </b>{" "}
           is a leading <b>book publishing company</b> dedicated to delivering{" "}
           <b>innovative solutions</b> that meet the evolving needs of the

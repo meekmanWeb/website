@@ -17,7 +17,12 @@ const Header = () => {
         {/* company logo  */}
         <div className="flex items-center gap-4">
           <CompanyLogo />
-          <h2 className="text-4xl font-semibold text-center">Meekman</h2>
+          <div className="text-3xl font-semibold ">
+            <h1>Meekman</h1>
+            <p className="text-xs text-center italic font-sans text-secondary font-normal">
+              Books & Educational Services
+            </p>
+          </div>
         </div>
         {/* icon to open sidebar on mobile */}
         <div
