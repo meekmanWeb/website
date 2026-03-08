@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/component/Header";
-import Footer from "@/components/component/Footer";
 import "aos/dist/aos.css";
 import AOSProvider from "@/lib/AOSProvider";
-
+import { Toaster } from "react-hot-toast";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -56,9 +54,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AOSProvider />
-        <Header />
+        <Toaster position="top-right" />
         {children}
-        <Footer />
       </body>
     </html>
   );

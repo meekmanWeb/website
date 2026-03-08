@@ -1,27 +1,56 @@
-import { products } from "@/components/data";
+"use client";
 import Image from "next/image";
 import ProductComp from "../components/ProductComp";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getProducts } from "@/features/firebase/products/productsAPI";
+import { Product } from "@/features/admin/products/types/schema";
 
 const Products = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data as Product[]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
   const primarySeries = useMemo(() => {
-    return products.filter((pr) => pr.categories === "primary");
-  }, [products]);
-  const nurserySeries = useMemo(() => {
-    return products.filter((pr) => pr.categories === "nursery");
+    if (!products) return [];
+    else {
+      return products.filter((ppro) => ppro.category === "primary");
+    }
   }, [products]);
   const secondarySeries = useMemo(() => {
-    return products.filter((pr) => pr.categories === "secondary");
+    if (!products) return [];
+    else {
+      return products.filter((ppro) => ppro.category === "secondary");
+    }
   }, [products]);
+  const nurserySeries = useMemo(() => {
+    if (!products) return [];
+    else {
+      return products.filter((ppro) => ppro.category === "nursery");
+    }
+  }, [products]);
+
   return (
     <main>
-      <Image
-        src="/images/first_class.png"
-        width={300}
-        height={300}
-        alt=""
-        className="w-full h-[600px] bg-cover contain-content"
-      />
+      <div className="relative w-full h-[60vh] md:h-[75vh] lg:h-[90vh]">
+        <Image
+          src="/images/product-hero.png"
+          alt="Meekman Library"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
       <div className="my-10">
         <h2></h2>
         <p className="max-w-lg px-6" data-aos="fade-up" data-aos-delay="200">
@@ -60,13 +89,6 @@ const Products = () => {
           ))}
         </div>
       </section>
-      {/* <section className="my-10">
-        <div className="grid grid-cols-1 gap-6 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {nurserySeries.map((product, index) => (
-            <ProductCard item={product} key={index} />
-          ))}
-        </div>
-      </section> */}
     </main>
   );
 };

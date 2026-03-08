@@ -1,12 +1,30 @@
+"use client";
 import Image from "next/image";
-import { products } from "../data";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Product } from "@/features/admin/products/types/schema";
+import { getProducts } from "@/features/firebase/products/productsAPI";
+import ProductSkeleton from "./ProductSkeleton";
 
 // Sample products array
 
 const ProductsPage = () => {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data as Product[]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
   return (
     <main className="w-full max-w-6xl mx-auto px-4 py-24">
       <div className="mb-12 space-y-4">
@@ -24,29 +42,33 @@ const ProductsPage = () => {
       </div>
 
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {products.map((product, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
-            data-aos={index > 1 ? "fade-up" : "fade-down"}
-            data-aos-delay="300"
-          >
-            <div className="relative w-full h-[300px]">
-              <Image
-                src={product.image}
-                alt={product.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-primary mb-2">
-                {product.title}
-              </h3>
-              <p className="text-gray-600 text-sm">{product.description}</p>
-            </div>
-          </div>
-        ))}
+        {loading
+          ? Array.from({ length: 4 }).map((_, index) => (
+              <ProductSkeleton key={index} />
+            ))
+          : products.map((product, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
+                data-aos={index > 1 ? "fade-up" : "fade-down"}
+                data-aos-delay="300"
+              >
+                <div className="relative w-full h-[300px]">
+                  <Image
+                    src={product.image ?? "/images/logoComp.jpg"}
+                    alt={product.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-primary mb-2">
+                    {product.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{product.description}</p>
+                </div>
+              </div>
+            ))}
       </div>
       <div className="flex justify-end mt-6">
         <Button className="cursor-pointer text-white" asChild>

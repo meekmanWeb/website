@@ -5,6 +5,9 @@ import {
   FlaskConical,
   BookMarked,
   Laptop,
+  Award,
+  Palette,
+  CheckCircle,
 } from "lucide-react";
 
 export const links = [
@@ -12,7 +15,7 @@ export const links = [
   { href: "/about", label: "About Us" },
   { href: "/products", label: "Products" },
   { href: "/contact", label: "Contact Us" },
-  { href: "/blog", label: "Blog" },
+  { href: "/seminars", label: "Seminar" },
 ];
 export const nurserySeries: ProductsType[] = [
   {
@@ -155,3 +158,10 @@ export const quickLinks = [
   { title: "Seminars", path: "/seminars" },
   { title: "Products", path: "/products" },
 ];
+export const whyChooseus = [
+  { icon: <CheckCircle />, title: "Curriculum Compliance", rate: 91 },
+  { icon: <BookOpen />, title: "Book Quality", rate: 92 },
+  { icon: <Palette />, title: "Beautiful Illustrations", rate: 86 },
+  { icon: <Award />, title: "Quick Delivery", rate: 88 },
+];
+export const seminars = [{ image: "", title: "", date: "" }];
