@@ -1,15 +1,15 @@
-import { ProductsType } from "@/types";
+import { Product } from "@/features/admin/products/types/schema";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductComp = ({ item }: { item: ProductsType }) => {
+const ProductComp = ({ item }: { item: Product }) => {
   const { image, title, description, id } = item;
   return (
     <div className="p-4 bg-white shadow-md rounded-lg flex overflow-hidden hover:shadow-lg transition">
       <div className="relative w-[300px] h-56">
         <Image
-          src={image}
+          src={image ?? "/images/logoComp.jpg"}
           alt={title}
           width={200}
           height={200}

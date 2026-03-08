@@ -1,11 +1,9 @@
 import Hero from "@/components/component/Hero";
 import About from "@/components/component/About";
 import Services from "@/components/component/Services";
-import Contact from "@/components/component/Contact";
 import ProductsPage from "@/components/component/Products";
 import Tips from "@/components/component/Tips";
-import Link from "next/link";
-import SeminarsWorkshopsSection from "@/components/component/PreviousSeminar";
+import WhyChooseUs from "@/components/component/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -19,20 +17,21 @@ export default function Home() {
       <About />
       <Services />
       <ProductsPage />
-      <SeminarsWorkshopsSection />
+      <WhyChooseUs />
+      {/* <SeminarsWorkshopsSection /> */}
       {/* our services section */}
 
-      <div className="max-w-6xl mx-auto my-10 text-center">
-        <h4 className="text-2xl font-bold text-blue-700 mb-2">
+      {/* <div className="max-w-6xl mx-auto my-10 text-center">
+        <h4 className="text-2xl font-bold text-primary mb-2">
           Ready to order books or enroll in an upcoming workshop?
         </h4>
         <Link
           href="/contact"
-          className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
+          className="inline-block bg-primary text-white px-6 py-2 rounded-md hover:bg-primary transition"
         >
           Contact Us
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 }
