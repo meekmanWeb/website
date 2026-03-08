@@ -1,5 +1,4 @@
 import { db } from "@/config/firebaseConfig";
-import { formatDataToDDMMYY } from "@/features/admin/products/components/formatDate";
 import {
   addDoc,
   collection,
@@ -21,6 +20,7 @@ export interface Product {
   category: ProductCategory;
   features: string;
   ISBN: string;
+  createdAt: string;
 }
 
 export const getProducts = async () => {
@@ -41,7 +41,7 @@ export const getProductById = async (id: string) => {
   if (docSnap.exists()) {
     return {
       id: docSnap.id,
-      ...docSnap.data(),
+      ...(docSnap.data() as Omit<Product, "id">),
     };
   } else {
     throw new Error("Product not found");
@@ -55,7 +55,6 @@ export const createProduct = async (product: Product) => {
   try {
     const docRef = await addDoc(collection(db, "products"), {
       ...product,
-      createdAt: formatDataToDDMMYY(),
     });
     toast.success("Product created successfully");
     return { id: docRef.id, ...product };

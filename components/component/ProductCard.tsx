@@ -1,13 +1,13 @@
-import { ProductsType } from "@/types";
+import { Product } from "@/features/firebase/products/productsAPI";
 import Image from "next/image";
 
-const ProductCard = ({ item }: { item: ProductsType }) => {
+const ProductCard = ({ item }: { item: Product }) => {
   const { image, title, description } = item;
   return (
     <div className="px-4 bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition">
       <div className="relative w-full h-56">
         <Image
-          src={image}
+          src={image ?? "/images/logoComp.jpg"}
           alt={title}
           width={200}
           height={200}

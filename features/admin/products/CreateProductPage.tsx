@@ -19,6 +19,7 @@ import {
 import Tiptap from "./components/TipTap";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { formatDataToDDMMYY } from "./components/formatDate";
 
 const CreateProductPage = () => {
   const [submitError, setSubmitError] = useState("");
@@ -55,6 +56,7 @@ const CreateProductPage = () => {
       image: imagePathFromCloudinary,
       features: features,
       ISBN: data.isbn,
+      createdAt: formatDataToDDMMYY(),
     };
 
     try {

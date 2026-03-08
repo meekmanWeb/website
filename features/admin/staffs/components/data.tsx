@@ -1,26 +1,3 @@
-import { Staff } from "../types/staffTypes";
-
-export const staffs: Staff[] = [
-  {
-    id: "1",
-    name: "John Ade",
-    schoolsVisited: 15,
-    sales: 350000,
-    returns: 20000,
-    target: 500000,
-    reports: 12,
-  },
-  {
-    id: "2",
-    name: "Mary Obi",
-    schoolsVisited: 9,
-    sales: 210000,
-    returns: 5000,
-    target: 300000,
-    reports: 7,
-  },
-];
-
 export const statesArray = [
   "Abia",
   "Adamawa",

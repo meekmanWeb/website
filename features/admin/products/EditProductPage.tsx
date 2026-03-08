@@ -31,7 +31,8 @@ const EditProductPage = () => {
   const [imagePathFromCloudinary, setImage] = useState("");
   const [features, setFeatures] = useState("");
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  const params = useParams();
+  const id = Array.isArray(params.id) ? params.id[0] : (params.id as string);
   const router = useRouter();
 
   const {
@@ -48,7 +49,7 @@ const EditProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const product: Product = await getProductById(id);
+        const product: Product = await getProductById(id as string);
 
         setValue("title", product.title);
         setValue("classes", product.classes);
@@ -74,7 +75,7 @@ const EditProductPage = () => {
     setSubmitSuccess("");
     setSubmitError("");
 
-    const payload: Product = {
+    const payload = {
       title: data.title.trim(),
       classes: data.classes.trim(),
       category: data.categories,

@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { staffs } from "./components/data";
 import { useState } from "react";
 import AddStaffModal from "./components/AddStaffModal";
 import { Staff } from "./types/staffTypes";
@@ -33,7 +32,7 @@ const StaffPage = () => {
             </tr>
           </thead>
 
-          <tbody>
+          {/* <tbody>
             {staffs.map((staff) => (
               <tr key={staff.id} className="">
                 <td className="p-3">
@@ -51,7 +50,7 @@ const StaffPage = () => {
                 <td className="p-3">{staff.reports}</td>
               </tr>
             ))}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
       {showAddStaff && <AddStaffModal onAdd={handleCreateStaff} />}
