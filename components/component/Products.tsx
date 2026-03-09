@@ -41,7 +41,7 @@ const ProductsPage = () => {
         </p>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-10">
         {loading
           ? Array.from({ length: 4 }).map((_, index) => (
               <ProductSkeleton key={index} />
@@ -49,7 +49,7 @@ const ProductsPage = () => {
           : products.map((product, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
+                className="bg-white w-full shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
                 data-aos={index > 1 ? "fade-up" : "fade-down"}
                 data-aos-delay="300"
               >
@@ -62,10 +62,15 @@ const ProductsPage = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-2">
+                  <h3 className="text-2xl font-semibold text-primary mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-gray-600 text-sm">{product.description}</p>
+                  <p className="text-gray-600 text-sm">
+                    {product.description?.split(" ").slice(0, 30).join(" ") +
+                      (product.description?.split(" ").length > 30
+                        ? "..."
+                        : "")}
+                  </p>
                 </div>
               </div>
             ))}
