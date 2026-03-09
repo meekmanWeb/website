@@ -4,6 +4,7 @@ import ProductComp from "../components/ProductComp";
 import { useEffect, useMemo, useState } from "react";
 import { getProducts } from "@/features/firebase/products/productsAPI";
 import { Product } from "@/features/admin/products/types/schema";
+import ProductSectionSkeleton from "../components/ProductSkeleton";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -59,36 +60,46 @@ const Products = () => {
           nursery, primary, secondary and the tertiary institution.
         </p>
       </div>
-      <section className="my-6">
-        <h2 className="px-6 text-xl md:text-2xl text-primary font-bold">
-          Nursery Series
-        </h2>
-        <div className="lg:grid mt-6 space-y-6 lg:space-y-0 grid-cols-2 gap-6 px-4 ">
-          {nurserySeries.map((product, index) => (
-            <ProductComp item={product} key={index} />
-          ))}
-        </div>
-      </section>
-      <section className="my-10">
-        <h2 className="px-6 text-xl md:text-2xl text-primary font-bold">
-          Primary Series
-        </h2>
-        <div className="lg:grid mt-6 space-y-6 lg:space-y-0 grid-cols-2 gap-6 px-4 ">
-          {primarySeries.map((product, index) => (
-            <ProductComp item={product} key={index} />
-          ))}
-        </div>
-      </section>
-      <section className="my-10">
-        <h2 className="px-6 text-xl md:text-2xl text-primary font-bold">
-          Secondary Series
-        </h2>
-        <div className="lg:grid mt-6 space-y-6 lg:space-y-0 grid-cols-2 gap-6 px-4 ">
-          {secondarySeries.map((product, index) => (
-            <ProductComp item={product} key={index} />
-          ))}
-        </div>
-      </section>
+      {loading ? (
+        <>
+          <ProductSectionSkeleton />
+          <ProductSectionSkeleton />
+          <ProductSectionSkeleton />
+        </>
+      ) : (
+        <>
+          <section className="my-6">
+            <h2 className="px-6 text-xl md:text-2xl text-primary font-bold">
+              Nursery Series
+            </h2>
+            <div className="lg:grid mt-6 space-y-6 lg:space-y-0 grid-cols-2 gap-6 px-4 ">
+              {nurserySeries.map((product, index) => (
+                <ProductComp item={product} key={index} />
+              ))}
+            </div>
+          </section>
+          <section className="my-10">
+            <h2 className="px-6 text-xl md:text-2xl text-primary font-bold">
+              Primary Series
+            </h2>
+            <div className="lg:grid mt-6 space-y-6 lg:space-y-0 grid-cols-2 gap-6 px-4 ">
+              {primarySeries.map((product, index) => (
+                <ProductComp item={product} key={index} />
+              ))}
+            </div>
+          </section>
+          <section className="my-10">
+            <h2 className="px-6 text-xl md:text-2xl text-primary font-bold">
+              Secondary Series
+            </h2>
+            <div className="lg:grid mt-6 space-y-6 lg:space-y-0 grid-cols-2 gap-6 px-4 ">
+              {secondarySeries.map((product, index) => (
+                <ProductComp item={product} key={index} />
+              ))}
+            </div>
+          </section>
+        </>
+      )}
     </main>
   );
 };

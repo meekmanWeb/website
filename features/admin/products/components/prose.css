@@ -1,0 +1,18 @@
+.pr {
+  font-size: 21;
+}
+.pr h1 {
+  color: #121063;
+  margin: 10px 0px;
+}
+.pr ul {
+  list-style: square;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12;
+}
+.pr ul li {
+  list-style: square;
+  margin: 0px 20px;
+}

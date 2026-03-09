@@ -1,12 +1,10 @@
 "use client";
-
-import { Button } from "@/components/ui/button";
+import "./components/prose.css";
 import { getProductById } from "@/features/firebase/products/productsAPI";
-import { ArrowLeft, Loader2, Pencil, Trash2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Product } from "./types/schema";
 
 const ProductDetailsPage = () => {
@@ -41,10 +39,10 @@ const ProductDetailsPage = () => {
   }
 
   return (
-    <section className="space-y-5">
-      <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="grid gap-6 md:grid-cols-[280px_1fr]">
-          <div className="relative w-full overflow-hidden rounded-lg border border-slate-200 aspect-4/5">
+    <section className="space-y-5 max-w-4xl mx-auto mt-5 ">
+      <article className="rounded-xl bg-white p-5">
+        <div className=" flex flex-col gap-6 md:flex-row items-center ">
+          <div className="relative w-full min-w-70 md:w-1/2 overflow-hidden rounded-lg border bg-BrandAmber border-slate-200 aspect-4/5">
             <Image
               src={product.image ?? "/images/logoComp.jpg"}
               alt={product.title}
@@ -56,10 +54,8 @@ const ProductDetailsPage = () => {
             />
           </div>
 
-          <div className="space-y-3">
-            <h1 className="text-2xl font-bold text-slate-900">
-              {product.title}
-            </h1>
+          <div className="md:pt-4 space-y-5">
+            <h1 className="text-2xl font-bold text-primary">{product.title}</h1>
             <p className="text-slate-700">{product.description}</p>
 
             <div className="grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
@@ -72,16 +68,16 @@ const ProductDetailsPage = () => {
                 <span className="capitalize">{product.ISBN}</span>
               </p>
             </div>
-            <div className="mt-8">
-              <h2 className="font-bold text-primary text-2xl">
-                About the Book
-              </h2>
-              <div
-                className="prose max-w-none"
-                dangerouslySetInnerHTML={{ __html: product.features }}
-              />
-            </div>
           </div>
+        </div>
+        <div className="my-12">
+          <h2 className="font-bold text-primary text-2xl mb-4">
+            About the Book
+          </h2>
+          <div
+            className="prose max-w-none leading-8 text-xl text-gray-600 prose-ul:list-disc  prose-ul:pl-6 prose-li:marker:text-primary prose-li:my-2 pr"
+            dangerouslySetInnerHTML={{ __html: product.features }}
+          />
         </div>
       </article>
     </section>
