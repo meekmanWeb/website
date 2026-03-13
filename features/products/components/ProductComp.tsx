@@ -18,7 +18,10 @@ const ProductComp = ({ item }: { item: Product }) => {
       </div>
       <div className="p-6 w-full">
         <h3 className="md:text-xl font-semibold text-primary mb-2">{title}</h3>
-        <p className="text-blue-950 text-sm">{description}</p>
+        <p className="text-blue-950 text-sm">
+          {description?.split(" ").slice(0, 30).join(" ") +
+            (description?.split(" ").length > 30 ? "..." : "")}
+        </p>
         <Link
           href={`products/${id}`}
           className="flex items-center gap-1 text-secondary hover:underline text-sm mt-2"
