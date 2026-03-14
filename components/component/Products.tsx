@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Product } from "@/features/admin/products/types/schema";
 import { getProducts } from "@/features/firebase/products/productsAPI";
 import ProductSkeleton from "./ProductSkeleton";
+import toast from "react-hot-toast";
 
 // Sample products array
 
@@ -17,7 +18,11 @@ const ProductsPage = () => {
     const loadProducts = async () => {
       try {
         const data = await getProducts();
+        if (data.length < 1) {
+          toast.error("No Product Found, please reload");
+        }
         setProducts(data as Product[]);
+        toast.success("Products fetched successfully");
       } finally {
         setLoading(false);
       }
@@ -58,7 +63,7 @@ const ProductsPage = () => {
                     src={product.image ?? "/images/logoComp.jpg"}
                     alt={product.title}
                     fill
-                    className="object-top"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6">

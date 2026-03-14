@@ -31,9 +31,10 @@ const Header = () => {
         >
           {!openSideBar && <Menu />}
         </div>
-        {openSideBar && (
-          <SidebarComp setOpenSideBar={() => setOpenSideBar(!openSideBar)} />
-        )}
+        <SidebarComp
+          openSidebar={openSideBar}
+          setOpenSideBar={() => setOpenSideBar(!openSideBar)}
+        />
 
         <ul className="hidden md:flex gap-5">
           {links.map((link) => (
