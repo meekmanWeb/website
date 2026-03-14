@@ -32,7 +32,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
       setLoading(false);
     }
   };
-  console.log(product.createdAt);
 
   return (
     <>

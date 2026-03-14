@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { ContactFormType, contactSchema } from "./validation";
 import emailjs from "@emailjs/browser";
 import { publickKey, serviceId, templateId } from "@/config/emailJs";
+import toast from "react-hot-toast";
 const ContactUsPage = () => {
   const {
     register,
@@ -38,10 +39,10 @@ const ContactUsPage = () => {
         publickKey!,
       );
 
-      alert("Message sent successfully");
+      toast.success("Message sent successfully");
       reset();
     } catch (error) {
-      console.error("Email failed:", error);
+      toast.error("email failed, contact us at 07066190321");
     }
   };
   return (

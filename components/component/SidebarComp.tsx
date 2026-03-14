@@ -11,7 +11,6 @@ interface Props {
 }
 const SidebarComp = ({ setOpenSideBar, openSidebar }: Props) => {
   const pathname = usePathname();
-  console.log(openSidebar);
   return (
     <>
       {openSidebar && (
