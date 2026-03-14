@@ -24,14 +24,18 @@ export interface Product {
 }
 
 export const getProducts = async () => {
-  const querySnapshot = await getDocs(collection(db, "products"));
+  try {
+    const querySnapshot = await getDocs(collection(db, "products"));
 
-  const productsArray = querySnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
+    const productsArray = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
 
-  return productsArray;
+    return productsArray;
+  } catch (error) {
+    throw new Error("Failed to fetch products");
+  }
 };
 
 export const getProductById = async (id: string) => {

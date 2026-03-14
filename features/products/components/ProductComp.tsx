@@ -6,14 +6,14 @@ import Link from "next/link";
 const ProductComp = ({ item }: { item: Product }) => {
   const { image, title, description, id } = item;
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg flex overflow-hidden hover:shadow-lg transition">
-      <div className="relative w-[300px] h-56">
+    <div className="sm:p-4 bg-white shadow-md rounded-lg sm:flex overflow-hidden hover:shadow-lg transition">
+      <div className="relative sm:w-[300px] ">
         <Image
           src={image ?? "/images/logoComp.jpg"}
           alt={title}
           width={200}
           height={200}
-          className="size-full"
+          className="w-full aspect-auto"
         />
       </div>
       <div className="p-6 w-full">
