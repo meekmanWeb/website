@@ -1,11 +1,54 @@
+"use client";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Bell, Mail, Phone } from "lucide-react";
-
+import { useForm } from "react-hook-form";
+import { ContactFormType, contactSchema } from "./validation";
+import emailjs from "@emailjs/browser";
+import { publickKey, serviceId, templateId } from "@/config/emailJs";
 const ContactUsPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormType>({
+    resolver: zodResolver(contactSchema),
+  });
+  const getTodayDate = () => {
+    const today = new Date();
+
+    return today.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+  };
+  const onSubmit = async (data: ContactFormType) => {
+    try {
+      await emailjs.send(
+        serviceId!,
+        templateId!,
+        {
+          name: data.schoolName,
+          time: getTodayDate(),
+          message: `${data.message} <br/><br/><br/><br/>  School Address: ${data.address} <br/><br/><br/><br/>  Contact Number:${data.phone}`,
+          title: "Important Message from Website",
+          email: data.email,
+        },
+        publickKey!,
+      );
+
+      alert("Message sent successfully");
+      reset();
+    } catch (error) {
+      console.error("Email failed:", error);
+    }
+  };
   return (
     <main className="mx-auto max-w-4xl w-full mt-10">
-      <section className="my-10 md:flex justify-center  gap-4">
+      <section className="my-10 flex-col md:flex-row flex justify-center p-4 gap-4">
         <article className="w-full md:w-1/2 md:mt-6">
-          <h1 className=" font-bold md:text-lg text-primary">Contact Us</h1>
+          <h1 className=" font-bold text-lg text-primary">Contact Us</h1>
           <p>We are a message away</p>
           <div className="mt-6 space-y-5">
             <article className="flex gap-4">
@@ -42,79 +85,97 @@ const ContactUsPage = () => {
             </article>
           </div>
         </article>
-        <form className=" shadow bg-[#ebebeb] w-full md:w-1/2 space-y-6 p-6 rounded-lg ">
+        <form
+          className=" shadow bg-[#ebebeb50] w-full md:w-1/2 space-y-6 p-6 rounded-lg "
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
-            <label
-              htmlFor="schoolName"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-primary">
               School or Business Name
             </label>
+
             <input
-              type="text"
-              id="schoolName"
-              name="schoolName"
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2"
+              {...register("schoolName")}
+              className="mt-1 block w-full border bg-white border-gray-200 rounded-md p-2"
             />
+
+            {errors.schoolName && (
+              <p className="text-red-500 text-xs">
+                {errors.schoolName.message}
+              </p>
+            )}
           </div>
 
+          {/* Address */}
           <div>
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-primary">
               Address
             </label>
+
             <input
-              type="text"
-              id="address"
-              name="address"
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2"
+              {...register("address")}
+              className="mt-1 block w-full border bg-white border-gray-200 rounded-md p-2"
             />
+
+            {errors.address && (
+              <p className="text-red-500 text-xs">{errors.address.message}</p>
+            )}
           </div>
 
+          {/* Phone */}
           <div>
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-primary">
               Phone Number
             </label>
+
             <input
-              type="tel"
-              id="phone"
-              name="phone"
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2"
+              {...register("phone")}
+              className="mt-1 block w-full border bg-white border-gray-200 rounded-md p-2"
             />
+
+            {errors.phone && (
+              <p className="text-red-500 text-xs">{errors.phone.message}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-primary">
+              Email Address
+            </label>
+
+            <input
+              {...register("email")}
+              className="mt-1 block w-full border bg-white border-gray-200 rounded-md p-2"
+            />
+
+            {errors.email && (
+              <p className="text-red-500 text-xs">{errors.email.message}</p>
+            )}
           </div>
 
+          {/* Message */}
           <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-primary">
               Message
             </label>
+
             <textarea
-              id="message"
-              name="message"
               rows={5}
-              required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 resize-none"
+              {...register("message")}
+              className="mt-1 block w-full border bg-white border-gray-200 rounded-md p-2 resize-none"
             />
+
+            {errors.message && (
+              <p className="text-red-500 text-xs">{errors.message.message}</p>
+            )}
           </div>
 
-          <div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
-            >
-              Send Message
-            </button>
-          </div>
+          <button
+            disabled={isSubmitting}
+            type="submit"
+            className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-700 transition"
+          >
+            {isSubmitting ? "Sending..." : "Send Message"}
+          </button>
         </form>
       </section>
     </main>
