@@ -63,7 +63,7 @@ const ProductsPage = () => {
                     src={product.image ?? "/images/logoComp.jpg"}
                     alt={product.title}
                     fill
-                    className="object-cover"
+                    className="object-top"
                   />
                 </div>
                 <div className="p-6">
